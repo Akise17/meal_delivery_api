@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 #additional Gems
 gem 'mysql2'
 gem 'devise'
+gem 'ransack'
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
