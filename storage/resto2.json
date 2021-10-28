@@ -1,0 +1,210 @@
+[
+    {
+        "name": "Fast Subs",
+        "location": "-8.620924,115.113735",
+        "balance": "3062.33",
+        "business_hours": "Sun: 12 PM - 1:30 AM | Mon: 5:45 AM - 3:15 AM | Tue: 1:30 PM - 3:15 PM | Wed: 8:30 AM - 9 PM | Thur: 7 AM - 12:15 AM | Fri: 11:30 AM - 4 PM | Sat: 1:30 PM - 7:30 PM",
+        "menu": [
+          {
+            "name": "Pistachio Trifle with Peanut Butter",
+            "price": "10.55"
+          },
+          {
+            "name": "Pumpkin Ice Cream Cake with Cheesecake Bites",
+            "price": "10.1"
+          },
+          {
+            "name": "Vanilla Key Lime Pie with Bacon",
+            "price": "12.26"
+          },
+          {
+            "name": "Amstel Pilsner",
+            "price": "13.67"
+          },
+          {
+            "name": "Caramel Frozen Yogurt with Butterscotch Syrup",
+            "price": "10.76"
+          },
+          {
+            "name": "Salted Caramel Coffee Cake with Peanuts",
+            "price": "12.88"
+          },
+          {
+            "name": "Sapporo Wood-aged Beer",
+            "price": "13.66"
+          },
+          {
+            "name": "Coconut Doughnut with Whipped Cream",
+            "price": "10.5"
+          },
+          {
+            "name": "Green Tea Fruit Cake with Bacon",
+            "price": "10.15"
+          },
+          {
+            "name": "Lemon Ice Cream Cake with Cinnamon",
+            "price": "10.56"
+          }
+        ]
+    },
+    {
+        "name": "Golden Steakhouse",
+        "location": "-8.744696,115.22638",
+        "balance": "3211.97",
+        "business_hours": "Sunday: 6:30 AM - 8:15 AM | Monday: 6 AM - 8:30 PM | Tuesday-Wednesday: 6:45 AM - 3 PM | Thursday: 6:15 AM - 8:30 AM | Friday: 4 PM - 10:15 PM | Saturday: 1:30 PM - 11:45 PM",
+        "menu": [
+          {
+            "name": "Rhubarb",
+            "price": "11.51"
+          },
+          {
+            "name": "Samuel Smith’s Oatmeal Stout",
+            "price": "10.94"
+          },
+          {
+            "name": "Nashi Pear",
+            "price": "13.94"
+          },
+          {
+            "name": "Heineken Scottish And Irish Ale",
+            "price": "11.25"
+          },
+          {
+            "name": "Cheeseburger",
+            "price": "11.97"
+          },
+          {
+            "name": "Semolina",
+            "price": "10.06"
+          },
+          {
+            "name": "Mandarins smoothie",
+            "price": "11.48"
+          }
+        ]
+    },
+    {
+        "name": "Smokestack Steakhouse",
+        "location": "-8.73463,115.226247",
+        "balance": "1413.61",
+        "business_hours": null,
+        "menu": [
+          {
+            "name": "Coconut Coffee Cake with Caramel",
+            "price": "12.37"
+          },
+          {
+            "name": "Chocolate Ice Cream with Butterscotch Syrup",
+            "price": "13.29"
+          },
+          {
+            "name": "Espresso Parfait with Gummy Bears",
+            "price": "12.14"
+          }
+        ]
+    },
+    {
+        "name": "Fast Kitchen",
+        "location": "-8.812261,115.190274",
+        "balance": "1259.94",
+        "business_hours": "Sun, Thu: 7:45 AM - 2 AM | Mon, Fri: 5:15 AM - 3 AM | Tue: 11:15 AM - 1:45 PM | Wed: 6 AM - 8:30 PM | Sat: 7:15 AM - 9:30 PM",
+        "menu": [
+          {
+            "name": "Neapolitan Brownie with Peanut Butter",
+            "price": "10.28"
+          },
+          {
+            "name": "Pistachio Parfait with Gummy Bears",
+            "price": "12.27"
+          },
+          {
+            "name": "Harp Porter",
+            "price": "11.66"
+          },
+          {
+            "name": "French Vanilla Cupcake with Frosting",
+            "price": "14.0"
+          },
+          {
+            "name": "Mint Chocolate Chip Doughnut with Chocolate Sprinkles",
+            "price": "11.45"
+          },
+          {
+            "name": "Almond Ice Cream with Chocolate Chips",
+            "price": "12.6"
+          },
+          {
+            "name": "Strawberry Key Lime Pie with Rainbow Sprinkles",
+            "price": "11.77"
+          },
+          {
+            "name": "Vanilla Trifle with Gummy Bears",
+            "price": "10.45"
+          },
+          {
+            "name": "Coconut Cheesecake with Chocolate Syrup",
+            "price": "10.94"
+          }
+        ]
+      },
+      {
+        "name": "Fat Grill",
+        "location": "-8.613549,115.23841",
+        "balance": "1500.54",
+        "business_hours": "Sunday: 8:30 AM - 2:30 PM | Monday: 1:15 PM - 5:45 PM | Tuesday: 1 PM - 7:45 PM | Wednesday: 4:45 PM - 2 AM | Thursday: 4 PM - 11:15 PM | Friday: 2:30 PM - 9:30 PM | Saturday: 10:30 AM - 4:45 PM",
+        "menu": [
+          {
+            "name": "Apple Upside Down Pineapple Cake with Toffee Bits",
+            "price": "10.25"
+          },
+          {
+            "name": "Murphys English Pale Ale",
+            "price": "11.98"
+          },
+          {
+            "name": "Cookies 'n Cream Ice Cream Cake with Walnuts",
+            "price": "10.25"
+          },
+          {
+            "name": "Blondie Pudding with Cookie Dough",
+            "price": "10.15"
+          },
+          {
+            "name": "Quimes Stout",
+            "price": "12.23"
+          },
+          {
+            "name": "Cookies 'n Cream Sweet Bread with Mocha Drizzle",
+            "price": "10.34"
+          },
+          {
+            "name": "Rocky Road Cake Pop with Chocolate Syrup",
+            "price": "11.75"
+          },
+          {
+            "name": "Green Tea Cupcake with Caramel",
+            "price": "13.59"
+          },
+          {
+            "name": "Vanilla Upside Down Pineapple Cake with Walnuts",
+            "price": "11.2"
+          },
+          {
+            "name": "French Vanilla Sundae with Berry Compote",
+            "price": "12.17"
+          },
+          {
+            "name": "Lemon Upside Down Pineapple Cake with Bacon",
+            "price": "11.45"
+          },
+          {
+            "name": "Neapolitan Key Lime Pie with Rainbow Sprinkles",
+            "price": "13.13"
+          },
+          {
+            "name": "Chocolate Chip Cookie Dough Fruit Cake with Marshmallows",
+            "price": "10.82"
+          }
+        ]
+      }
+]
