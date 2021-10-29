@@ -62,5 +62,24 @@ module Services
             Handler::Res.call(200, "Success retrive data", data)
         end
         
+        def self.restaurant_by_price_range(params)
+            prices = params[:price_range].split("-")
+            q = Restaurant.joins(:menus)
+                .where("menus.price BETWEEN ? AND ?", prices[0], prices[1])
+                .group("id")
+
+            restaurants = q.paginate(page: params[:page], per_page: params[:per_page])
+            
+            restaurants.select_menu(prices)
+
+            data = {
+                total: q.length, 
+                current_page: params[:page], 
+                total_pages:(q.length/params[:per_page].to_i)+1, 
+                limit: params[:per_page],
+                restaurant: restaurants.as_json(:include => [:selected_menus])
+            }
+            Handler::Res.call(200, "Success retrive data", data)
+        end
     end
 end
