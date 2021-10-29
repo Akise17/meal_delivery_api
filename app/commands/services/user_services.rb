@@ -22,10 +22,13 @@ module Services
             resto_lists = JSON.parse(File.read('./storage/restaurants.json'))
 
             resto_lists.each do |resto_list|
+                location = resto_list["location"].split(",")
                 @resto = Restaurant.create(
                     name: resto_list["name"],
                     location: resto_list["location"],
-                    balance: resto_list["balance"]
+                    balance: resto_list["balance"],
+                    latitude: location[0],
+                    longitude: location[1]
                 )
 
                 unless resto_list["business_hours"].nil?
@@ -62,7 +65,7 @@ module Services
             Handler::Res.call(201, "Import Success.", [])
         end
 
-        
+
 
         private
 

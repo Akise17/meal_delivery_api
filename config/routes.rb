@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post  "/import_restaurant", to: "user#import_restaurant"
 
       get "/restaurant/open", to: "restaurant#restaurant_by_open_time"
+      get "/restaurant/distance", to: "restaurant#restaurant_by_distance"
     end
   end
 end

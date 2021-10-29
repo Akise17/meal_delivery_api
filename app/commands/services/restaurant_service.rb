@@ -6,7 +6,7 @@ module Services
             q = BusinessHour.where("business_hours.day = ?", day)
                 .where("business_hours.open_time <= ?", time)
                 .where("business_hours.close_time >= ?", time)
-                .ransack
+                .ransack(params[:q])
 
             bussiness_hours = q.result.paginate(:page => params[:page], :per_page => params[:per_page])
             
@@ -27,6 +27,21 @@ module Services
 
             Handler::Res.call(200, "Success retrive data", data)
         end
-    end
+
+        def self.restaurant_by_distance(params)
+            location = params[:location].split(",")
+            q = Restaurant.near(location, params[:distance])
+
+            restaurants = q.limit(params[:per_page]).paginate(:page => params[:page])
+
+            data = {
+                total: q.length, 
+                current_page: params[:page], 
+                total_pages:(q.length/params[:per_page].to_i)+1, 
+                limit: params[:per_page],
+                restaurant: restaurants.as_json
+            }
+            Handler::Res.call(200, "Success retrive data", data)
+        end
     
 end

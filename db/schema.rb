@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_122458) do
+ActiveRecord::Schema.define(version: 2021_10_28_190108) do
 
   create_table "business_hours", charset: "utf8mb4", force: :cascade do |t|
     t.integer "restaurant_id"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2021_10_28_122458) do
     t.float "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude", default: 0.0
+    t.float "longitude", default: 0.0
+    t.index ["latitude", "longitude"], name: "index_restaurants_on_latitude_and_longitude"
   end
 
   create_table "transactions", charset: "utf8mb4", force: :cascade do |t|
