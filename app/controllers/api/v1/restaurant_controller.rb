@@ -8,5 +8,18 @@ class Api::V1::RestaurantController < Api::ApplicationController
         restaurants = Services::RestaurantService.restaurant_by_distance(params)
         render json: restaurants.as_json, status: restaurants[:meta][:status]
     end
+
+    def restaurant_by_open_time_range
+        restaurants = Services::RestaurantService.restaurant_by_open_time_range(params)
+        render json: restaurants.as_json, status: restaurants[:meta][:status]
+    end
     
+    private
+
+    def bussiness_hours_params
+        params.permit(
+            :open_time, 
+            :close_time
+        )
+    end
 end

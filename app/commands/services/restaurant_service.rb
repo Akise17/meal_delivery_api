@@ -20,8 +20,7 @@ module Services
                         :restaurant => {:except => [:created_at, :updated_at]}
                     ],
                     :except => [:restaurant_id, :created_at, :updated_at]
-                ) 
-                
+                )    
             }
 
             Handler::Res.call(200, "Success retrive data", data)
@@ -42,5 +41,26 @@ module Services
             }
             Handler::Res.call(200, "Success retrive data", data)
         end
+
+        def self.restaurant_by_open_time_range(params)
+            q = Restaurant.joins(:bussiness_hours)
+                .where("? BETWEEN open_time AND close_time", params[:open_time])
+                .where("? BETWEEN open_time AND close_time", params[:close_time])
+                .group("id")
+            
+            restaurants = q.paginate(page: params[:page], per_page: params[:per_page])
+                
+            restaurants.open_time(params)
+
+            data = {
+                total: q.length, 
+                current_page: params[:page], 
+                total_pages:(q.length/params[:per_page].to_i)+1, 
+                limit: params[:per_page],
+                restaurant: restaurants.as_json(:include => [:selected_hours])
+            }
+            Handler::Res.call(200, "Success retrive data", data)
+        end
+        
     end
 end
