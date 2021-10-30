@@ -65,7 +65,24 @@ module Services
             Handler::Res.call(201, "Import Success.", [])
         end
 
+        def self.top_user_by_transaction_amount(params)
+            q = User.joins(:transactions)
+                .select('users.id, users.name, users.location, sum(transactions.amount) as total_amount')
+                .where("transactions.purchase_date BETWEEN ? AND ?", params[:start_date], params[:end_date])
+                .group('id')
+                .order('total_amount DESC')
 
+            users = q.paginate(page: params[:page], per_page: params[:per_page])
+
+            data = {
+                total: q.length, 
+                current_page: params[:page], 
+                total_pages:(q.length/params[:per_page].to_i)+1, 
+                limit: params[:per_page],
+                users: users.as_json
+            }
+            Handler::Res.call(200, "Retrive data successful.", data)
+        end
 
         private
 

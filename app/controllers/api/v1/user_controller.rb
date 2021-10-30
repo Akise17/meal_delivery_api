@@ -8,6 +8,11 @@ class Api::V1::UserController < Api::ApplicationController
         resto = Services::UserServices.import_restaurant
         render json:resto.as_json, status: resto[:meta][:status]
     end
+
+    def top_user_by_transaction_amount
+        resto = Services::UserServices.top_user_by_transaction_amount(params)
+        render json:resto.as_json, status: resto[:meta][:status]
+    end
     
     def test
         render json:{

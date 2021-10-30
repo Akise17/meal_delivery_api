@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get "/restaurant/distance", to: "restaurant#restaurant_by_distance"
       get "/restaurant/time_range", to: "restaurant#restaurant_by_open_time_range"
       get "/restaurant/price_range", to: "restaurant#restaurant_by_price_range"
+
+      get "/user/top_user", to: "user#top_user_by_transaction_amount"
     end
   end
 end
