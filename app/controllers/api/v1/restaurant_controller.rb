@@ -23,5 +23,10 @@ class Api::V1::RestaurantController < Api::ApplicationController
         restaurants = Services::RestaurantService.search(params)
         render json: restaurants.as_json, status: restaurants[:meta][:status]
     end
+
+    def popular_restaurant
+        restaurants = Services::RestaurantService.popular_restaurant(params)
+        render json: restaurants.as_json, status: restaurants[:meta][:status]
+    end
     
 end

@@ -152,6 +152,24 @@ module Services
 
             Handler::Res.call(200, "Success retrive data", data)
         end
+       
+        def self.popular_restaurant(params)
+            q = Restaurant.joins("RIGHT JOIN transactions ON restaurants.name = transactions.restaurant_name")
+                .select('restaurants.id, restaurants.name, count(transactions.id) as transactions_count, sum(transactions.amount) as total_amount')
+                .group('restaurants.name')
+                .order('transactions_count DESC, total_amount DESC')
+
+            restaurants = q.paginate(page: params[:page], per_page: params[:per_page])
+
+            data = {
+                total: q.length, 
+                current_page: params[:page], 
+                total_pages:(q.length/params[:per_page].to_i)+1, 
+                limit: params[:per_page],
+                restaurant: restaurants.as_json
+            }
+            Handler::Res.call(200, "Success retrive data", data)
+        end
         
     end
 end
