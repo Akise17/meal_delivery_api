@@ -88,6 +88,12 @@ module Services
             Handler::Res.call(200, "Retrive data successful.", data)
         end
 
+        def self.my_transaction(current_api_user)
+            user = current_api_user
+            Handler::Res.call(200, "Retrive data successful.", user.as_json(:include => [:transactions]))
+        end
+        
+
         private
 
         def self.filter_day(word)

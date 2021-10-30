@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get "/restaurant/top_restaurant", to: "restaurant#popular_restaurant"
 
       get "/user/top_user", to: "user#top_user_by_transaction_amount"
+      get "/user/transaction", to: "user#my_transaction"
     end
   end
 end
