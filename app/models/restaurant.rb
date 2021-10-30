@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
     
     has_many :menus, class_name: "Menu", foreign_key: "restaurant_id", :dependent => :destroy
     has_many :bussiness_hours, class_name: "BusinessHour", foreign_key: "restaurant_id", :dependent => :destroy
-    # has_many :transactions, class_name: "Transaction", foreign_key: "restaurant_name"
+    has_many :transactions, class_name: "Transaction", foreign_key: "restaurant_name", :primary_key => "name"
 
     def self.open_time(bussiness_hours_params)
         has_many :selected_hours, -> { 

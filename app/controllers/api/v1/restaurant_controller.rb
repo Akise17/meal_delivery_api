@@ -1,4 +1,10 @@
 class Api::V1::RestaurantController < Api::ApplicationController
+
+    def import_restaurant
+        restaurants = Services::RestaurantServices.import_restaurant
+        render json:restaurants.as_json, status: restaurants[:meta][:status]
+    end
+
     def restaurant_by_open_time
         restaurants = Services::RestaurantService.restaurant_by_open_time(params)
         render json: restaurants.as_json, status: restaurants[:meta][:status]
@@ -26,6 +32,11 @@ class Api::V1::RestaurantController < Api::ApplicationController
 
     def popular_restaurant
         restaurants = Services::RestaurantService.popular_restaurant(params)
+        render json: restaurants.as_json, status: restaurants[:meta][:status]
+    end
+    
+    def restaurant_transaction
+        restaurants = Services::RestaurantService.restaurant_transaction(params)
         render json: restaurants.as_json, status: restaurants[:meta][:status]
     end
     
