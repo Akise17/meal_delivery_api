@@ -2,7 +2,7 @@ require 'elasticsearch/model'
 
 class Restaurant < ApplicationRecord
     include Elasticsearch::Model
-    include Elasticsearch::Model::Callbacks
+    # include Elasticsearch::Model::Callbacks
     
     has_many :menus, class_name: "Menu", foreign_key: "restaurant_id", :dependent => :destroy
     has_many :bussiness_hours, class_name: "BusinessHour", foreign_key: "restaurant_id", :dependent => :destroy

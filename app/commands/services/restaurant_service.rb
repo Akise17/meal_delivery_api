@@ -1,5 +1,7 @@
 module Services
     class RestaurantService
+        require 'elasticsearch/model'
+
         def self.restaurant_by_open_time(params)
             day = params[:datetime].to_date.strftime("%a")
             time = params[:datetime].to_datetime.strftime("%H:%M:%S")
@@ -81,5 +83,75 @@ module Services
             }
             Handler::Res.call(200, "Success retrive data", data)
         end
+
+        def self.search(params)
+
+            if params[:filter] == "relevance"
+                body = {
+                    "from": params[:page],
+                    "size": params[:per_page],
+                    "sort": ["_score": "desc"], 
+                    "query": { 
+                        "bool": { 
+                            "must": [],
+                            "filter": [],
+                            "should": [
+                                {
+                                    "bool":{
+                                        "should": ["match":{"name": params[:keyword]}]
+                                    }
+                                },
+                                {
+                                    "bool":{
+                                        "should": ["match":{"menus.name": params[:keyword]}]
+                                    }
+                                }
+                            ],
+                            "must_not": [] 
+                        }
+                    }
+                }
+            elsif params[:filter] == "best_match"
+                body = {
+                    "from": params[:page],
+                    "size": params[:per_page],
+                    "sort": ["_score": "desc"], 
+                    "query": { 
+                      "bool": { 
+                        "must": [],
+                        "filter": [],
+                        "should": [
+                            {
+                                "bool":{
+                                    "should": ["match_phrase":{"name": params[:keyword]}]
+                                }
+                            },
+                            {
+                                "bool":{
+                                    "should": ["match_phrase":{"menus.name": params[:keyword]}]
+                                }
+                            }
+                        ],
+                        "must_not": [] 
+                      }
+                    }
+                  }
+            end
+
+            puts body.as_json
+
+            q = Restaurant.__elasticsearch__.search(body)
+
+            data = {
+                total: q.results.total, 
+                current_page: params[:page], 
+                total_pages:((q.results.total)/params[:per_page].to_i)+1, 
+                limit: params[:per_page],
+                restaurants: q.as_json
+            }
+
+            Handler::Res.call(200, "Success retrive data", data)
+        end
+        
     end
 end

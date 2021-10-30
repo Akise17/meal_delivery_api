@@ -13,6 +13,8 @@ module Services
                     # purchases_attributes: user_list["purchase_attributes"]
                 )
                 @user.transactions.create(user_list["purchases_attributes"])
+
+                Services::EcsService.index("users", @user.as_json(:include => [:purchases_attributes]))
             end
 
             Handler::Res.call(201, "Import Success.", nil)
@@ -57,11 +59,13 @@ module Services
                         end
                     end
                     @resto.bussiness_hours.create(bussiness_hours)
+
                 end
                 
                 @resto.menus.create(resto_list["menu"])
-            end
 
+                Services::EcsService.index("restaurants", @resto.as_json(:include => [:menus, :bussiness_hours]))
+            end
             Handler::Res.call(201, "Import Success.", [])
         end
 

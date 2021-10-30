@@ -95,6 +95,7 @@ GEM
       activesupport (> 3)
       elasticsearch (~> 7)
       hashie
+    elasticsearch-rails (7.2.0)
     elasticsearch-transport (7.15.0)
       faraday (~> 1)
       multi_json
@@ -267,6 +268,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   elasticsearch-model
+  elasticsearch-rails
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.3)

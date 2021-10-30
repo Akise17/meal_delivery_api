@@ -18,5 +18,10 @@ class Api::V1::RestaurantController < Api::ApplicationController
         restaurants = Services::RestaurantService.restaurant_by_price_range(params)
         render json: restaurants.as_json, status: restaurants[:meta][:status]
     end
+
+    def search
+        restaurants = Services::RestaurantService.search(params)
+        render json: restaurants.as_json, status: restaurants[:meta][:status]
+    end
     
 end
