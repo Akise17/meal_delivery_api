@@ -26,4 +26,8 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  host: <%= Rails.application.secrets.host %>
+  database: <%= Rails.application.secrets.name %>
+  username: <%= Rails.application.secrets.username %>
+  password: <%= Rails.application.secrets.password %>
+  socket: /var/run/mysqld/mysqld.sock
