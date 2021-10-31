@@ -7,15 +7,14 @@ install_plugin Capistrano::SCM::Git
 
 require 'capistrano/rails'
 require 'capistrano/bundler'
-# require 'capistrano/rvm'
+require 'capistrano/rvm'
+# require 'capistrano/rbenv'
 require 'capistrano/puma'
-require 'capistrano/rbenv'
 
-# install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Systemd
 
-set :rbenv_type, :user
-set :rbenv_ruby, '2.7.2'
+
 
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

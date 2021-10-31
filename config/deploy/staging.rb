@@ -42,7 +42,7 @@
 # Global options
 # --------------
 #  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
+#    keys: %w(/home/user_name/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
@@ -59,34 +59,3 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-# Change these
-server '159.65.13.11', port: 22, roles: [:web, :app, :db], primary: true
-
-branch = 'sandbox'
-puts "Deploying branch #{red branch}"
-set :repo_url,        'git@github.com:Akise17/meal_delivery_api.git'
-set :application,     'meal_delivery'
-set :user,            'root'
-set :branch,          branch
-set :puma_threads,    [4, 16]
-set :puma_workers,    0
-
-
-
-# Don't change these unless you know what you're doing
-set :pty,             true
-set :use_sudo,        false
-set :stage,           :production
-set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/app/#{fetch(:application)}"
-set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
-set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
-set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
-set :puma_access_log, "#{release_path}/log/puma.error.log"
-set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
-set :puma_preload_app, true
-set :puma_worker_timeout, nil
-set :puma_init_active_record, true  # Change to false when not using ActiveRecord
-set :rvm_type, :user                     # Defaults to: :auto
-set :rvm_ruby_version, '2.7.2'
