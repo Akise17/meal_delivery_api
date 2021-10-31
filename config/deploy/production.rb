@@ -62,7 +62,7 @@
 # Change these
 server '159.65.13.11', port: 22, roles: [:web, :app, :db], primary: true
 
-branch = 'master'
+branch = 'dev'
 puts "Deploying branch #{red branch}"
 set :repo_url,        'git@github.com:Akise17/meal_delivery_api.git'
 set :application,     'meal_delivery'
