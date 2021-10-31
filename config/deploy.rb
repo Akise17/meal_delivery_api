@@ -1,11 +1,5 @@
 def current_git_branch
     branch = `git symbolic-ref HEAD 2> /dev/null`.strip.gsub(/^refs\/heads\//, '')
-    # if ENV.staging?
-    #   branch ="internal_dashboard"
-    # elsif ENV.production?
-    #   branch "Transaction"
-    # end
-      
     puts "Deploying branch #{red branch}"
     branch
   end
