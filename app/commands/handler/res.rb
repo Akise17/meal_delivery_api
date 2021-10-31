@@ -9,7 +9,7 @@ module Handler
                 data: data
             }
     
-            puts response.as_json
+            # puts response.as_json
     
             return response
         end

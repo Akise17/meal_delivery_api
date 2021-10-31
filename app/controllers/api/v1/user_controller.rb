@@ -1,13 +1,19 @@
 class Api::V1::UserController < Api::ApplicationController
     def import_user
-        user = Services::UserServices.import_user
-        render json:user.as_json, status: user[:meta][:status]
+        users = Services::UserServices.import_user
+        render json:users.as_json, status: users[:meta][:status]
+    end
+
+    def top_user_by_transaction_amount
+        users = Services::UserServices.top_user_by_transaction_amount(params)
+        render json:users.as_json, status: users[:meta][:status]
+    end
+
+    def my_user_transaction
+        users = Services::UserServices.my_user_transaction(@current_api_user)
+        render json:users.as_json, status: users[:meta][:status]
     end
     
-    def import_restaurant
-        resto = Services::UserServices.import_restaurant
-        render json:resto.as_json, status: resto[:meta][:status]
-    end
     
     def test
         render json:{

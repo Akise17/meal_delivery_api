@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Orange House",
+        "location": "-8.65504,115.110801",
+        "balance": "4483.84",
+        "business_hours": "Sunday: 10:45 AM - 5 PM | Monday, Friday: 2:30 PM - 8 PM | Tuesday: 11 AM - 2 PM | Wednesday: 1:15 PM - 3:15 AM | Thursday: 10 AM - 3:15 AM | Saturday: 5 AM - 11:30 AM",
+        "menu": [
+        {
+            "name": "Kiwiberries",
+            "price": "10.64"
+        },
+        {
+            "name": "Dates",
+            "price": "12.45"
+        },
+        {
+            "name": "Arborio Rice",
+            "price": "10.59"
+        },
+        {
+            "name": "Figs juice",
+            "price": "13.5"
+        },
+        {
+            "name": "Papaya",
+            "price": "13.5"
+        },
+        {
+            "name": "Watermelon",
+            "price": "12.56"
+        },
+        {
+            "name": "Budweiser Wood-aged Beer",
+            "price": "12.38"
+        },
+        {
+            "name": "Oranges",
+            "price": "11.64"
+        },
+        {
+            "name": "Pears smoothie",
+            "price": "10.51"
+        },
+        {
+            "name": "French Toast",
+            "price": "10.2"
+        },
+        {
+            "name": "Jarrahdale pumpkin",
+            "price": "14.0"
+        },
+        {
+            "name": "Papaw",
+            "price": "11.79"
+        },
+        {
+            "name": "Salmon Nigiri",
+            "price": "10.15"
+        },
+        {
+            "name": "Goji Berry smoothie",
+            "price": "13.88"
+        }
+        ]
+    }
+]
