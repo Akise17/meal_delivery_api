@@ -14,6 +14,10 @@ class Api::V1::UserController < Api::ApplicationController
         render json:users.as_json, status: users[:meta][:status]
     end
     
+    def create_transaction
+        transaction = Services::UserServices.create_transaction(@current_api_user, params)
+        render json:transaction.as_json, status: transaction[:meta][:status]
+    end
     
     def test
         render json:{

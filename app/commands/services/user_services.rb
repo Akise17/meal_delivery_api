@@ -43,6 +43,27 @@ module Services
             user = current_api_user
             Handler::Res.call(200, "Retrive data successful.", user.as_json(:include => [:transactions]))
         end
+
+        def self.create_transaction(current_api_user, params)
+            user = current_api_user
+            menu = Menu.find(params[:menu_id])
+
+            transaction = current_api_user.transactions.new(
+                restaurant_name: menu.restaurant.name,
+                dish: menu.name,
+                amount: menu.price,
+                purchase_date: DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+            )
+
+            if transaction.save
+                user.update(
+                    balance: user.balance - transaction.amount
+                )
+                
+                Handler::Res.call(201, "Transaction success.", transaction.as_json(:include => [:user]))
+            end
+        end
+        
         
 
         private

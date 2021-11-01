@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
       get "/user/top_user", to: "user#top_user_by_transaction_amount"
       get "/user/transaction", to: "user#my_user_transaction"
+
+      post "/order", to: "user#create_transaction"
     end
   end
 end
