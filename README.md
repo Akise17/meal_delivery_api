@@ -1,12 +1,13 @@
 # Meal Delivery API
 
-#### Rails version: 6.1.4.1
-#### Ruby Version: 2.7.2
-#### bundle version: 2.1.4
+## Environtment
+#### - Rails version: 6.1.4.1
+#### - Ruby Version: 2.7.2
+#### - bundle version: 2.1.4
 
-### Databases:
-#### MySql
-#### ElasticSearch
+## Databases:
+#### - MySql
+#### - ElasticSearch
 
 ### Import Raw Data
 There 2 endpoint to import Restaurant and User Data
