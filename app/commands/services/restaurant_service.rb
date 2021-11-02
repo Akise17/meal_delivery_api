@@ -79,6 +79,9 @@ module Services
 
         def self.restaurant_by_distance(params)
             location = params[:location].split(",")
+
+            raise ActionController::ParameterMissing if location[1].nil?
+
             q = Restaurant.near(location, params[:distance])
 
             restaurants = q.paginate(page: params[:page], per_page: params[:per_page])
@@ -115,6 +118,9 @@ module Services
         
         def self.restaurant_by_price_range(params)
             prices = params[:price_range].split("-")
+
+            raise ActionController::ParameterMissing if prices[1].nil?
+
             q = Restaurant.joins(:menus)
                 .where("menus.price BETWEEN ? AND ?", prices[0], prices[1])
                 .group("id")
@@ -122,6 +128,8 @@ module Services
             restaurants = q.paginate(page: params[:page], per_page: params[:per_page])
             
             restaurants.select_menu(prices)
+
+            raise ActiveRecord::RecordNotFound if restaurants.empty?
 
             data = {
                 total: q.length, 
@@ -184,7 +192,9 @@ module Services
                         "must_not": [] 
                       }
                     }
-                  }
+                }
+            else
+                raise ArgumentError
             end
 
             puts body.as_json

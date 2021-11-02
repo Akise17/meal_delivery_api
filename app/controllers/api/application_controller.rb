@@ -17,6 +17,27 @@ module Api
                 end
             end
         end
+
+        rescue_from ActionController::ParameterMissing do |e|
+            error = Handler::Res.call(400, "Bad Request", e.message.split("\n")[0])
+            render json: error.as_json, status: error[:meta][:status]
+        end
         
+        rescue_from Date::Error, ArgumentError do |e|
+            error = Handler::Res.call(422, "Unprocessable Entity", e.message)
+            render json: error.as_json, status: error[:meta][:status]
+        end
+
+        rescue_from NoMethodError do |e|
+            error = Handler::Res.call(405, "Method not Allowed", nil)
+            puts e.message
+            render json: error.as_json, status: error[:meta][:status]
+        end
+
+        rescue_from ActiveRecord::RecordNotFound do |e|
+            error = Handler::Res.call(404, "Record Not Found", nil)
+            puts e.message
+            render json: error.as_json, status: error[:meta][:status]
+        end
     end 
 end
