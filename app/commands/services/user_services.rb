@@ -29,6 +29,8 @@ module Services
 
             users = q.paginate(page: params[:page], per_page: params[:per_page])
 
+            raise ActiveRecord::RecordNotFound if users.empty?
+            
             data = {
                 total: q.length, 
                 current_page: params[:page], 
