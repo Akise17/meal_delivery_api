@@ -1,24 +1,30 @@
-# README
+# Meal Delivery API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Rails version: 6.1.4.1
+#### Ruby Version: 2.7.2
+#### bundle version: 2.1.4
 
-Things you may want to cover:
+Databases:
+#### MySql
+#### ElasticSearch
 
-* Ruby version
+### Import Raw Data
+There 2 endpoint to import Restaurant and User Data
+1. User Import Endpoint ```/api/v1/import_user```
+2. Restaurant Import Endpoint ```/api/v1/import_restaurant```
+this request may take long taime to execute
 
-* System dependencies
+### Setup Backend Server
 
-* Configuration
+### Unit Testing
+1. In your project directory: type ```bundle install```
+2. run ```rspec```
+3. To view coverage, open index.html in ```{ROOT DIRECTORY}/coverage/index.html```
 
-* Database creation
+### API Documentation
+##### Documentation for this projects
+```https://documenter.getpostman.com/view/1487291/UVByKqe5```
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Production URL
+This project deployed in DigitalOcean using capistrano. The production URL ```159.65.13.11```
