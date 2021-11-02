@@ -12,7 +12,7 @@
 There 2 endpoint to import Restaurant and User Data
 1. User Import Endpoint ```/api/v1/import_user```
 2. Restaurant Import Endpoint ```/api/v1/import_restaurant```
-this request may take long taime to execute
+this request may take long time to execute
 
 ### Setup Backend Server
 
