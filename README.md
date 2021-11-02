@@ -3,7 +3,7 @@
 ## Environtment
 #### - Rails version: 6.1.4.1
 #### - Ruby Version: 2.7.2
-#### - bundle version: 2.1.4
+#### - Bundle Version: 2.1.4
 
 ## Databases:
 #### - MySql
@@ -16,6 +16,11 @@ There 2 endpoint to import Restaurant and User Data
 this request may take long time to execute
 
 ### Setup Backend Server
+1. Clone this repository
+2. Setup DB Credential
+3. Run ```rails db:migrate```
+4. Run Import API (this request may take long time to execute)
+5. run server ```rails s```
 
 ### Unit Testing
 1. In your project directory: type ```bundle install```
@@ -29,3 +34,6 @@ this request may take long time to execute
 
 ### Production URL
 This project deployed in DigitalOcean using capistrano. The production URL ```159.65.13.11```
+- Basic Authentication:
+Username: ```user_id```
+Password: ```hungry12345678```
