@@ -20,7 +20,7 @@ this request may take long time to execute
 ### Unit Testing
 1. In your project directory: type ```bundle install```
 2. run ```rspec```
-3. To view coverage, open index.html in ```{ROOT DIRECTORY}/coverage/index.html```
+3. To view coverage, open index.html in ```{PROJECT DIRECTORY}/coverage/index.html```
 
 ### API Documentation
 ##### Documentation for this projects
